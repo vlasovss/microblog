@@ -1,4 +1,4 @@
-2022-11-07 16:21:10,573 ERROR: Exception on / [GET] [in /home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py:1741]
+2022-11-07 16:19:12,075 ERROR: Exception on / [GET] [in /home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py:1741]
 Traceback (most recent call last):
   File "/home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1900, in _execute_context
     self.dialect.do_execute(
@@ -84,41 +84,3 @@ FROM user
 WHERE user.id = ?]
 [parameters: (1,)]
 (Background on this error at: https://sqlalche.me/e/14/e3q8)
-2022-11-07 16:24:28,991 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:25:44,962 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:25:56,586 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:26:30,570 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:26:38,207 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:39:01,195 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:39:42,366 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:39:47,579 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:39:50,824 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:45:56,948 ERROR: Exception on /follow/susan [GET] [in /home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py:1741]
-Traceback (most recent call last):
-  File "/home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py", line 2525, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1822, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1820, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask/app.py", line 1796, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vlasov/Yandex.Disk/myprojects/microblog/.venv/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/vlasov/Yandex.Disk/myprojects/microblog/app/routes.py", line 130, in follow
-    return redirect('user', username=username)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: redirect() got an unexpected keyword argument 'username'
-2022-11-07 16:50:55,366 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:54:19,117 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:55:15,694 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 16:55:50,275 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 18:23:48,504 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 18:24:10,455 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 18:26:12,528 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]
-2022-11-07 18:26:30,524 INFO: Microblog startup [in /home/vlasov/Yandex.Disk/myprojects/microblog/app/__init__.py:50]

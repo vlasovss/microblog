@@ -41,6 +41,7 @@ def index():
         db.session.commit()
         flash('Your post is now live!')
         return redirect(url_for('index'))
+    
     page = request.args.get('page', 1, type=int)
     posts = current_user.followed_posts().paginate(
         page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
@@ -49,9 +50,15 @@ def index():
     prev_url = url_for('index', page=posts.prev_num) \
         if posts.has_prev else None
     
-    return render_template('index.html', title='Home Page', form=form, 
-                           posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+    context = {
+        'title': 'Home Page', 
+        'form': form,
+        'posts': posts.items, 
+        'next_url': next_url,
+        'prev_url': prev_url,
+    }
+    
+    return render_template('index.html', **context)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -68,7 +75,12 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     
-    return render_template('register.html', title='Register', form=form)
+    context = {
+        'title': 'Register', 
+        'form': form,
+    }
+    
+    return render_template('register.html', **context)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -91,7 +103,12 @@ def login():
         
         return redirect(next_page)
     
-    return render_template('login.html', title='Sign In',form=form)
+    context = {
+        'title': 'Sign In', 
+        'form': form,
+    }
+    
+    return render_template('login.html', **context)
 
 
 @app.route('/logout')
@@ -112,8 +129,14 @@ def user(username):
     prev_url = url_for('user', username=user.username, page=posts.prev_num) \
         if posts.has_prev else None
     
-    return render_template('user.html', user=user, posts=posts.items,
-                           next_url=next_url, prev_url=prev_url)
+    context = {
+        'user': user,
+        'posts': posts.items,
+        'next_url': next_url,
+        'prev_url': prev_url,
+    }
+    
+    return render_template('user.html', **context)
 
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
@@ -130,7 +153,12 @@ def edit_profile():
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
     
-    return render_template('edit_profile.html', title='Edit Profile', form=form)
+    context = {
+        'title': 'Edit Profile', 
+        'form': form,
+    }
+    
+    return render_template('edit_profile.html', **context)
 
 
 @app.route('/follow/<username>', methods=['POST'])
@@ -188,9 +216,14 @@ def explore():
     prev_url = url_for('explore', page=posts.prev_num) \
         if posts.has_prev else None
     
-    return render_template('index.html', title='Explore', 
-                           posts=posts.items, next_url=next_url,
-                           prev_url=prev_url)
+    context = {
+        'title': 'Explore',
+        'posts': posts.items,
+        'next_url': next_url,
+        'prev_url': prev_url,
+    }
+    
+    return render_template('index.html', **context)
 
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
@@ -207,8 +240,12 @@ def reset_password_request():
             your password!')
         return redirect(url_for('login'))
     
-    return render_template('reset_password_request.html', 
-                           title='Reset Password', form=form)
+    context = {
+        'title': 'Reset Password', 
+        'form': form,
+    }
+    
+    return render_template('reset_password_request.html', **context)
 
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
@@ -227,4 +264,8 @@ def reset_password(token):
         flash('Your password has been reset.')
         return redirect(url_for('login'))
     
-    return render_template('reset_password.html', form=form)
+    context = {
+        'form': form,
+    }
+    
+    return render_template('reset_password.html', **context)
