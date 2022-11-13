@@ -51,3 +51,9 @@
     {% endblock app_content %}
   </div>
 {% endblock content %}
+
+{% block scripts %}
+  {{ super() }}
+  {{ moment.include_moment() }}
+  <!-- {{ moment.lang('ru')}} -->
+{% endblock scripts %}
