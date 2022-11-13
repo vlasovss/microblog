@@ -2,8 +2,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,linux,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,linux,flask
 
-### DB ###
-*.db
+### App ###
+app.db
+venv
+microblog.log*
 
 ### Flask ###
 instance/*
