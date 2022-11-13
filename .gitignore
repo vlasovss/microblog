@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,linux,flask
 
 ### App ###
-app.db
+*.db
 venv
 microblog.log*
 
