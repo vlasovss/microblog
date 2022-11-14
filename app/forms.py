@@ -50,12 +50,12 @@ class RegistrationForm(FlaskForm):
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
-            raise ValidationError(_('Please use a different username.'))
+            raise ValidationError(_l('Please use a different username.'))
     
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError(_('Please use a different email address.'))
+            raise ValidationError(_l('Please use a different email address.'))
 
 
 class EditProfileForm(FlaskForm):
@@ -77,7 +77,7 @@ class EditProfileForm(FlaskForm):
         if username.data != self.original_username:
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
-                raise ValidationError(_('The username is busy. \
+                raise ValidationError(_l('The username is busy. \
                     Please use a different username.'))
 
 
@@ -90,7 +90,7 @@ class PostForm(FlaskForm):
         _l('Say something'),
         validators=[DataRequired(), Length(min=1, max=140)]
     )
-    submit = SubmitField(_('Submit'))
+    submit = SubmitField(_l('Submit'))
 
 
 class ResetPasswordRequestForm(FlaskForm):

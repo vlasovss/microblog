@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-14 16:19+0300\n"
+"POT-Creation-Date: 2022-11-14 16:45+0300\n"
 "PO-Revision-Date: 2022-11-14 13:58+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -53,7 +53,7 @@ msgstr "Зарегистрироваться"
 
 #: app/forms.py:53
 msgid "Please use a different username."
-msgstr ""
+msgstr "Пожалуйста, используйте другое имя пользователя."
 
 #: app/forms.py:58
 msgid "Please use a different email address."
@@ -104,9 +104,19 @@ msgstr "Ваши изменения были сохранены."
 msgid "You cannot follow yourself!"
 msgstr "Вы не можете подписаться на себя!"
 
+#: app/routes.py:187
+#, python-format
+msgid "You are following %(username)s!"
+msgstr "Вы подписаны на %(username)s!"
+
 #: app/routes.py:204
 msgid "You cannot unfollow yourself!"
 msgstr "Вы не можете отписаться от себя!"
+
+#: app/routes.py:209
+#, python-format
+msgid "You are not following %(username)s!"
+msgstr "Вы не подписаны на %(username)s!"
 
 #: app/routes.py:246
 #, fuzzy
@@ -121,7 +131,7 @@ msgstr "Ваш пароль был сброшен."
 
 #: app/templates/404.html:4
 msgid "File not found"
-msgstr ""
+msgstr "Файл не найден."
 
 #: app/templates/404.html:6 app/templates/500.html:9
 msgid "Back"
