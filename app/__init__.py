@@ -1,9 +1,12 @@
 from flask import Flask
+from flask_babel import Babel
+from flask_babel import lazy_gettext as _l
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_moment import Moment
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
 import logging
 from logging.handlers import SMTPHandler
@@ -16,7 +19,6 @@ from config import Config
 # App
 app = Flask(__name__)
 app.config.from_object(Config)
-moment = Moment(app)
 
 if not app.debug:
     # Sending errors by email.
@@ -59,7 +61,7 @@ mail = Mail(app)
 # Login
 login = LoginManager(app)
 login.login_view = 'login'
-# login.login_message = "Пожалуйста, войдите, чтобы открыть эту страницу."
+login.login_message = _l('Please log in to access this page.')
 
 # DB
 db = SQLAlchemy(app)
@@ -67,5 +69,17 @@ migrate = Migrate(app, db)
 
 # Bootstrap
 bootstrap = Bootstrap(app)
+
+# Moment.js
+moment = Moment(app)
+
+# Babel
+babel = Babel(app)
+
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 from app import routes, models, errors

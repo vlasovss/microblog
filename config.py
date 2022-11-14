@@ -1,5 +1,5 @@
 import os
-from pathlib import Path, PurePath
+from pathlib import Path
 
 basedir = Path(__file__).resolve().parent
 
@@ -22,4 +22,7 @@ class Config(object):
     ADMINS = ['vlasov.sergey.rf@mail.ru']
     
     # Pagination
-    POSTS_PER_PAGE = 25
+    POSTS_PER_PAGE = 3
+    
+    # Babel
+    LANGUAGES = ['en', 'ru']
