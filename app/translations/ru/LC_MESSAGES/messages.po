@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-14 16:45+0300\n"
+"POT-Creation-Date: 2022-11-14 20:33+0300\n"
 "PO-Revision-Date: 2022-11-14 13:58+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -23,11 +23,11 @@ msgstr ""
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, войдите в систему, чтобы получить доступ к этой странице."
 
-#: app/forms.py:20 app/forms.py:33 app/forms.py:63
+#: app/forms.py:20 app/forms.py:33 app/forms.py:64
 msgid "Username"
 msgstr "Пользователь"
 
-#: app/forms.py:24 app/forms.py:41 app/forms.py:106
+#: app/forms.py:24 app/forms.py:41 app/forms.py:107
 msgid "Password"
 msgstr "Пароль"
 
@@ -39,48 +39,51 @@ msgstr "Запомнить меня"
 msgid "Sign In"
 msgstr "Войти"
 
-#: app/forms.py:37 app/forms.py:98
+#: app/forms.py:37 app/forms.py:99
 msgid "Email"
 msgstr "Адрес электронной почты"
 
-#: app/forms.py:45 app/forms.py:110
+#: app/forms.py:45 app/forms.py:111
 msgid "Repeat Password"
 msgstr "Повторить пароль"
 
-#: app/forms.py:48 app/templates/register.html:5
+#: app/forms.py:47 app/forms.py:113
+msgid "The field must match password."
+msgstr "Пароли должны совпадать."
+
+#: app/forms.py:49 app/templates/register.html:5
 msgid "Register"
 msgstr "Зарегистрироваться"
 
-#: app/forms.py:53
+#: app/forms.py:54
 msgid "Please use a different username."
 msgstr "Пожалуйста, используйте другое имя пользователя."
 
-#: app/forms.py:58
+#: app/forms.py:59
 msgid "Please use a different email address."
 msgstr "Пожалуйста, используйте другое имя пользователя."
 
-#: app/forms.py:67
+#: app/forms.py:68
 msgid "About me"
 msgstr "Обо мне"
 
-#: app/forms.py:70 app/forms.py:85 app/forms.py:93
+#: app/forms.py:71 app/forms.py:86 app/forms.py:94
 msgid "Submit"
 msgstr "Отправить"
 
-#: app/forms.py:80
-#, fuzzy
+#: app/forms.py:81
 msgid "The username is busy.                     Please use a different username."
 msgstr "Имя пользователя занято. Пожалуйста, используйте другое имя пользователя."
 
-#: app/forms.py:90
+#: app/forms.py:91
 msgid "Say something"
 msgstr "Скажите что-нибудь:"
 
-#: app/forms.py:101
+#: app/forms.py:102
 msgid "Request Password Reset"
 msgstr "Восстановить"
 
-#: app/forms.py:113
+#: app/forms.py:115
 msgid "Reauest Password Reset"
 msgstr "Восстановить"
 
@@ -119,7 +122,6 @@ msgid "You are not following %(username)s!"
 msgstr "Вы не подписаны на %(username)s!"
 
 #: app/routes.py:246
-#, fuzzy
 msgid "Check your email for the instructions to reset             your password!"
 msgstr ""
 "Проверьте свою электронную почту для получения инструкций по сбросу "
