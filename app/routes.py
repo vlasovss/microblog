@@ -1,30 +1,17 @@
 from datetime import datetime
-from flask import flash
-from flask import g
-from flask import redirect
-from flask import render_template
-from flask import request
-from flask import url_for
-from flask_babel import _
-from flask_babel import get_locale
-from flask_login import current_user
-from flask_login import login_required
-from flask_login import login_user
-from flask_login import logout_user
+
+from flask import flash, g, redirect, render_template, request, url_for
+from flask_babel import _, get_locale
+from flask_login import current_user, login_required, login_user, logout_user
 from werkzeug.urls import url_parse
 
-from app import app
-from app import db
+from app import app, db
 from app.email import send_password_reset_email
-from app.forms import EditProfileForm
-from app.forms import EmptyForm
-from app.forms import LoginForm
-from app.forms import PostForm
-from app.forms import ResetPasswordForm
-from app.forms import ResetPasswordRequestForm
-from app.forms import RegistrationForm
-from app.models import User
-from app.models import Post
+from app.forms import (EditProfileForm, EmptyForm, LoginForm, PostForm,
+                       RegistrationForm, ResetPasswordForm,
+                       ResetPasswordRequestForm)
+from app.models import Post, User
+
 
 @app.before_request
 def before_request():

@@ -1,4 +1,8 @@
-from flask import Flask
+import logging
+from logging.handlers import RotatingFileHandler, SMTPHandler
+from pathlib import Path
+
+from flask import Flask, request
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
 from flask_bootstrap import Bootstrap
@@ -6,13 +10,7 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_moment import Moment
-from flask import request
 from flask_sqlalchemy import SQLAlchemy
-import logging
-from logging.handlers import SMTPHandler
-from logging.handlers import RotatingFileHandler
-from pathlib import Path
-import os
 
 from config import Config
 
@@ -82,4 +80,4 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-from app import routes, models, errors
+from app import errors, models, routes, cli

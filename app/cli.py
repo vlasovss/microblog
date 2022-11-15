@@ -1,15 +1,14 @@
 import os
+
 import click
+from flask.cli import AppGroup
+
 from app import app
 
-
-@app.cli.group()
-def translate():
-    """Translation and localization commands."""
-    pass
+translate_cli = AppGroup('translate')
 
 
-@translate.command()
+@translate_cli.command('init')
 @click.argument('lang')
 def init(lang):
     """Initialize a new language."""
@@ -21,7 +20,7 @@ def init(lang):
     os.remove('messages.pot')
 
 
-@translate.command()
+@translate_cli.command('update')
 def update():
     """Update all languages."""
     if os.system('pybabel extract -F babel.cfg -k _l -o messages.pot .'):
@@ -31,8 +30,11 @@ def update():
     os.remove('messages.pot')
 
 
-@translate.command()
+@translate_cli.command('compile')
 def compile():
     """Compile all languages."""
     if os.system('pybabel compile -d app/translations'):
         raise RuntimeError('compile command failed')
+
+
+app.cli.add_command(translate_cli)
