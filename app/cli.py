@@ -3,8 +3,6 @@ import os
 import click
 from flask.cli import AppGroup
 
-from app import app
-
 translate_cli = AppGroup('translate')
 
 
@@ -35,6 +33,3 @@ def compile():
     """Compile all languages."""
     if os.system('pybabel compile -d app/translations'):
         raise RuntimeError('compile command failed')
-
-
-app.cli.add_command(translate_cli)
