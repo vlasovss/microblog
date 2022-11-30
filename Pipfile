@@ -16,6 +16,7 @@ flask-bootstrap = "*"
 flask-moment = "*"
 flask-babel = "*"
 python-dotenv = "*"
+elasticsearch = "*"
 
 [dev-packages]
 

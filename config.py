@@ -31,3 +31,8 @@ class Config(object):
     
     # Babel
     LANGUAGES = ['en', 'ru']
+    
+    # Elasticsearch
+    ES_URL = getenv('ES_URL')
+    ES_LOGIN = getenv('ES_LOGIN')
+    ES_PASSWORD = getenv('ES_PASSWORD')

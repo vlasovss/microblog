@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-22 01:30+0300\n"
+"POT-Creation-Date: 2022-11-30 09:25+0300\n"
 "PO-Revision-Date: 2022-11-14 13:58+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.11.0\n"
 
-#: app/__init__.py:24
+#: app/__init__.py:25
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, войдите в систему, чтобы получить доступ к этой странице."
 
-#: app/auth/forms.py:12 app/auth/forms.py:25 app/main/forms.py:14
+#: app/auth/forms.py:12 app/auth/forms.py:25 app/main/forms.py:13
 msgid "Username"
 msgstr "Пользователь"
 
@@ -89,47 +89,63 @@ msgstr ""
 msgid "Your password has been reset."
 msgstr "Ваш пароль был сброшен."
 
-#: app/main/forms.py:18
+#: app/main/forms.py:17
 msgid "About me"
 msgstr "Обо мне"
 
-#: app/main/forms.py:21 app/main/forms.py:36 app/main/forms.py:44
+#: app/main/forms.py:20 app/main/forms.py:35 app/main/forms.py:43
 msgid "Submit"
 msgstr "Отправить"
 
-#: app/main/forms.py:31
+#: app/main/forms.py:30
 msgid "The username is busy.                     Please use a different username."
 msgstr "Имя пользователя занято. Пожалуйста, используйте другое имя пользователя."
 
-#: app/main/forms.py:41
+#: app/main/forms.py:40
 msgid "Say something"
 msgstr "Скажите что-нибудь:"
 
-#: app/main/routes.py:31
+#: app/main/forms.py:48 app/main/routes.py:189
+msgid "Search"
+msgstr "Поиск"
+
+#: app/main/routes.py:32
 msgid "Your post is now live!"
 msgstr "Ваш пост теперь в прямом эфире!"
 
-#: app/main/routes.py:86
+#: app/main/routes.py:44
+msgid "Home Page"
+msgstr "Домашняя"
+
+#: app/main/routes.py:92
 msgid "Your changes have been saved."
 msgstr "Ваши изменения были сохранены."
 
-#: app/main/routes.py:111
+#: app/main/routes.py:99 app/templates/edit_profile.html:5
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+#: app/main/routes.py:117
 msgid "You cannot follow yourself!"
 msgstr "Вы не можете подписаться на себя!"
 
-#: app/main/routes.py:116
+#: app/main/routes.py:122
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "Вы подписаны на %(username)s!"
 
-#: app/main/routes.py:133
+#: app/main/routes.py:139
 msgid "You cannot unfollow yourself!"
 msgstr "Вы не можете отписаться от себя!"
 
-#: app/main/routes.py:138
+#: app/main/routes.py:144
 #, python-format
 msgid "You are not following %(username)s!"
 msgstr "Вы не подписаны на %(username)s!"
+
+#: app/main/routes.py:165 app/templates/base.html:26
+msgid "Explore"
+msgstr "Обзор"
 
 #: app/templates/_post.html:14
 #, python-format
@@ -148,25 +164,17 @@ msgstr "Microblog"
 msgid "Home"
 msgstr "Домой"
 
-#: app/templates/base.html:26
-msgid "Explore"
-msgstr "Обзор"
-
-#: app/templates/base.html:30
+#: app/templates/base.html:37
 msgid "Login"
 msgstr "Войти"
 
-#: app/templates/base.html:32
+#: app/templates/base.html:39
 msgid "Profile"
 msgstr "Профиль"
 
-#: app/templates/base.html:33
+#: app/templates/base.html:40
 msgid "Logout"
 msgstr "Выйти"
-
-#: app/templates/edit_profile.html:5
-msgid "Edit Profile"
-msgstr "Редактировать профиль"
 
 #: app/templates/index.html:5
 msgid "Hello"
@@ -179,6 +187,18 @@ msgstr "Новые сообщения"
 #: app/templates/index.html:22 app/templates/user.html:58
 msgid "Older posts"
 msgstr "Старые сообщения"
+
+#: app/templates/search.html:5
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+#: app/templates/search.html:13
+msgid "Previous results"
+msgstr "Предыдущие результаты"
+
+#: app/templates/search.html:18
+msgid "Next results"
+msgstr "Следующие результаты"
 
 #: app/templates/user.html:8
 msgid "User"

@@ -2,6 +2,7 @@ import logging
 from logging.handlers import RotatingFileHandler, SMTPHandler
 from pathlib import Path
 
+from elasticsearch import Elasticsearch
 from flask import Flask, request
 from flask import current_app
 from flask_babel import Babel
@@ -13,7 +14,7 @@ from flask_migrate import Migrate
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 
-from config import Config
+from config import Config, basedir
 
 # Mail
 mail = Mail()
@@ -46,6 +47,11 @@ def create_app(config_class=Config):
     # App
     app = Flask(__name__)
     app.config.from_object(config_class)
+    app.es = Elasticsearch(hosts=[app.config['ES_URL']], 
+                           basic_auth=(app.config['ES_LOGIN'], 
+                                       app.config['ES_PASSWORD']),
+                           ca_certs=str(basedir.parent.parent.parent / 'http_ca.crt')) \
+        if app.config['ES_URL'] else None
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
