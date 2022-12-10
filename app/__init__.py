@@ -50,7 +50,7 @@ def create_app(config_class=Config):
     app.es = Elasticsearch(hosts=[app.config['ES_URL']], 
                            basic_auth=(app.config['ES_LOGIN'], 
                                        app.config['ES_PASSWORD']),
-                           ca_certs=str(basedir.parent.parent.parent / 'http_ca.crt')) \
+                           ca_certs='http_ca.crt', verify_certs=False) \
         if app.config['ES_URL'] else None
     db.init_app(app)
     migrate.init_app(app, db)

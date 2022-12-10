@@ -3,7 +3,10 @@ import os
 import click
 from flask.cli import AppGroup
 
+from app.models import Post
+
 translate_cli = AppGroup('translate')
+es_cli = AppGroup('elastic')
 
 
 @translate_cli.command('init')
@@ -33,3 +36,13 @@ def compile():
     """Compile all languages."""
     if os.system('pybabel compile -d app/translations'):
         raise RuntimeError('compile command failed')
+
+
+@es_cli.command('reindex')
+@click.argument('post')
+def reindex(post):
+    """Reindex model Post for ES."""
+    try:
+        Post.reindex()
+    except:
+        raise RuntimeError('Reindex model Post - commmand failed')

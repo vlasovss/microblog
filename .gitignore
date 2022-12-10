@@ -6,6 +6,7 @@
 *.db
 venv
 microblog.log*
+*.crt
 
 ### Flask ###
 instance/*
