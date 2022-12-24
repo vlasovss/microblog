@@ -1,0 +1,49 @@
+{% block app_content %}
+  <table style="table">
+    <tr valign="top">
+      <td width="64px" style="border: 0px;"><img src="{{ user.avatar(64) }}"></td>
+      <td style="border: 0px;">
+        <small>
+          <p>
+            <a href="{{ url_for('main.user', username=user.username)}}">
+              {{ user.username }}
+            </a>
+          </p>
+          {% if user.about_me %}
+            <p>
+              {{ user.about_me }}
+            </p>
+          {% endif %}
+          {% if user.last_seen %}
+            <p>
+              {{ _('Last seen on') }}: {{ moment(user.last_seen).format('lll') }}
+            </p>
+          {% endif %}
+          <p>
+            {{ _('%(count)d followers', count=user.followers.count()) }}, 
+            {{ _('%(count)d following.', count=user.followed.count()) }}
+          </p>
+          {% if user == current_user %}
+            <p>
+              <a href="{{ url_for('main.edit_profile') }}">{{ _('Edit your profile') }}</a>
+            </p>
+          {% elif not current_user.is_following(user)%}
+            <p>
+              <form action="{{ url_for('main.follow', username=user.username) }}" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.submit(value=_('Follow'), class_='btn btn-link btn-sm')}}
+              </form>
+            </p>
+          {% else %}
+            <p>
+              <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.submit(value=_('Unfollow'), class_='btn btn-link btn-sm')}}
+              </form>
+            </p>
+          {% endif %}
+          </small>
+      </td>
+    </tr>
+  </table>
+{% endblock app_content %}
