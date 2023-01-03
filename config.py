@@ -27,7 +27,7 @@ class Config(object):
     ADMINS = ['vlasov.sergey.rf@mail.ru']
     
     # Pagination
-    POSTS_PER_PAGE = 3
+    POSTS_PER_PAGE = 10
     
     # Babel
     LANGUAGES = ['en', 'ru']
