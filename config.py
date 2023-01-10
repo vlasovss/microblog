@@ -36,3 +36,6 @@ class Config(object):
     ES_URL = getenv('ES_URL')
     ES_LOGIN = getenv('ES_LOGIN')
     ES_PASSWORD = getenv('ES_PASSWORD')
+    
+    # Redis
+    REDIS_URL = getenv('REDIS_url') or 'redis://'

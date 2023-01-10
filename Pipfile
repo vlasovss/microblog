@@ -17,6 +17,7 @@ flask-moment = "*"
 flask-babel = "*"
 python-dotenv = "*"
 elasticsearch = "*"
+rq = "*"
 
 [dev-packages]
 

@@ -13,6 +13,8 @@ from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
+from redis import Redis
+import rq
 
 from config import Config, basedir
 
@@ -47,6 +49,8 @@ def create_app(config_class=Config):
     # App
     app = Flask(__name__)
     app.config.from_object(config_class)
+    app.redis = Redis.from_url(app.config['REDIS_URL'])
+    app.task_queue = rq.Queue('microblog-tasks', connection=app.redis)
     app.es = Elasticsearch(hosts=[app.config['ES_URL']], 
                            basic_auth=(app.config['ES_LOGIN'], 
                                        app.config['ES_PASSWORD']),
