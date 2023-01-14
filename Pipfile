@@ -18,6 +18,8 @@ flask-babel = "*"
 python-dotenv = "*"
 elasticsearch = "*"
 rq = "*"
+httpie = "*"
+flask-httpauth = "*"
 
 [dev-packages]
 
